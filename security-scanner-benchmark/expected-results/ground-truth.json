@@ -1,0 +1,148 @@
+{
+  "benchmark": "security-scanner-benchmark",
+  "version": "1.0",
+  "warning": "Intentionally vulnerable isolated test fixtures.",
+  "findings": [
+    {
+      "test_id": "SCA-001",
+      "category": "SCA",
+      "package": "PyYAML",
+      "ecosystem": "PyPI",
+      "version": "5.3.0",
+      "advisory_id": "CVE-2020-1747",
+      "severity": "CRITICAL",
+      "file": "sca/python/requirements.txt",
+      "expected_scanners": [
+        "Trivy",
+        "Grype",
+        "OSV"
+      ],
+      "expected_status": "DETECT",
+      "notes": "Affected versions are before 5.3.1."
+    },
+    {
+      "test_id": "SCA-002",
+      "category": "SCA",
+      "package": "lodash",
+      "ecosystem": "npm",
+      "version": "4.17.15",
+      "advisory_id": "CVE-2020-8203",
+      "severity": "HIGH",
+      "file": "sca/node/package-lock.json",
+      "expected_scanners": [
+        "Trivy",
+        "Grype",
+        "OSV"
+      ],
+      "expected_status": "DETECT",
+      "notes": "Prototype pollution; affected versions below 4.17.19."
+    },
+    {
+      "test_id": "SCA-003",
+      "category": "SCA",
+      "package": "lodash",
+      "ecosystem": "npm",
+      "version": "4.17.15",
+      "advisory_id": "CVE-2021-23337",
+      "severity": "HIGH",
+      "file": "sca/node/package-lock.json",
+      "expected_scanners": [
+        "Trivy",
+        "Grype",
+        "OSV"
+      ],
+      "expected_status": "DETECT",
+      "notes": "Command injection advisory; affected versions below 4.17.21."
+    },
+    {
+      "test_id": "DC-001",
+      "category": "Dependency Confusion",
+      "package": "@example-internal/telemetry",
+      "ecosystem": "npm",
+      "version": "1.2.0",
+      "advisory_id": null,
+      "severity": "HIGH",
+      "file": "dependency-confusion/registry-policy.json",
+      "expected_scanners": [
+        "Custom dependency-confusion rule"
+      ],
+      "expected_status": "DETECT",
+      "notes": "Simulated registry namespace collision. No malicious package."
+    },
+    {
+      "test_id": "IAC-001",
+      "category": "IaC",
+      "package": "AWS Security Group",
+      "ecosystem": "Terraform",
+      "version": null,
+      "advisory_id": null,
+      "severity": "HIGH",
+      "file": "iac/main.tf",
+      "expected_scanners": [
+        "Trivy config"
+      ],
+      "expected_status": "DETECT",
+      "notes": "SSH ingress exposed to 0.0.0.0/0."
+    },
+    {
+      "test_id": "IAC-002",
+      "category": "IaC",
+      "package": "AWS S3 Bucket",
+      "ecosystem": "Terraform",
+      "version": null,
+      "advisory_id": null,
+      "severity": "HIGH",
+      "file": "iac/main.tf",
+      "expected_scanners": [
+        "Trivy config"
+      ],
+      "expected_status": "DETECT",
+      "notes": "Bucket lacks explicit public access protections and encryption."
+    },
+    {
+      "test_id": "IAC-003",
+      "category": "IaC",
+      "package": "Alpine",
+      "ecosystem": "Docker",
+      "version": "latest",
+      "advisory_id": null,
+      "severity": "MEDIUM",
+      "file": "iac/Dockerfile",
+      "expected_scanners": [
+        "Trivy config"
+      ],
+      "expected_status": "DETECT",
+      "notes": "Unpinned image tag and root user."
+    },
+    {
+      "test_id": "CICD-001",
+      "category": "CI/CD",
+      "package": "GitHub Actions workflow",
+      "ecosystem": "GitHub Actions",
+      "version": null,
+      "advisory_id": null,
+      "severity": "HIGH",
+      "file": "cicd/workflows/insecure-ci.yml",
+      "expected_scanners": [
+        "Custom CI/CD rules"
+      ],
+      "expected_status": "DETECT",
+      "notes": "Workflow grants write-all permissions."
+    },
+    {
+      "test_id": "CICD-002",
+      "category": "CI/CD",
+      "package": "actions/checkout",
+      "ecosystem": "GitHub Actions",
+      "version": "v4",
+      "advisory_id": null,
+      "severity": "MEDIUM",
+      "file": "cicd/workflows/insecure-ci.yml",
+      "expected_scanners": [
+        "Custom CI/CD rules"
+      ],
+      "expected_status": "DETECT",
+      "notes": "Checkout persists Git credentials."
+    }
+  ]
+}

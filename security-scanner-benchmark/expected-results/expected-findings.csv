@@ -1,0 +1,10 @@
+test_id,category,package,ecosystem,version,advisory_id,severity,file,expected_scanners,expected_status,notes
+SCA-001,SCA,PyYAML,PyPI,5.3.0,CVE-2020-1747,CRITICAL,sca/python/requirements.txt,Trivy;Grype;OSV,DETECT,Affected versions are before 5.3.1.
+SCA-002,SCA,lodash,npm,4.17.15,CVE-2020-8203,HIGH,sca/node/package-lock.json,Trivy;Grype;OSV,DETECT,Prototype pollution; affected versions below 4.17.19.
+SCA-003,SCA,lodash,npm,4.17.15,CVE-2021-23337,HIGH,sca/node/package-lock.json,Trivy;Grype;OSV,DETECT,Command injection advisory; affected versions below 4.17.21.
+DC-001,Dependency Confusion,@example-internal/telemetry,npm,1.2.0,,HIGH,dependency-confusion/registry-policy.json,Custom dependency-confusion rule,DETECT,Simulated registry namespace collision. No malicious package.
+IAC-001,IaC,AWS Security Group,Terraform,,,HIGH,iac/main.tf,Trivy config,DETECT,SSH ingress exposed to 0.0.0.0/0.
+IAC-002,IaC,AWS S3 Bucket,Terraform,,,HIGH,iac/main.tf,Trivy config,DETECT,Bucket lacks explicit public access protections and encryption.
+IAC-003,IaC,Alpine,Docker,latest,,MEDIUM,iac/Dockerfile,Trivy config,DETECT,Unpinned image tag and root user.
+CICD-001,CI/CD,GitHub Actions workflow,GitHub Actions,,,HIGH,cicd/workflows/insecure-ci.yml,Custom CI/CD rules,DETECT,Workflow grants write-all permissions.
+CICD-002,CI/CD,actions/checkout,GitHub Actions,v4,,MEDIUM,cicd/workflows/insecure-ci.yml,Custom CI/CD rules,DETECT,Checkout persists Git credentials.

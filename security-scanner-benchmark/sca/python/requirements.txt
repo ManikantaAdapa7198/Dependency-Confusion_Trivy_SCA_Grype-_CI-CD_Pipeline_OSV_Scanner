@@ -1,0 +1,2 @@
+# Intentionally vulnerable test dependency
+PyYAML==5.3.0

@@ -1,0 +1,14 @@
+{
+  "test_id": "DC-001",
+  "scenario": "Private package namespace collision",
+  "package": "@example-internal/telemetry",
+  "expected_private_registry": "https://packages.example.invalid/",
+  "public_registry": "https://registry.npmjs.org/",
+  "expected_result": "FLAG_IF_PUBLIC_REGISTRY_IS_USED",
+  "safe_fixture": true,
+  "notes": [
+    "Reserved example.invalid domain is not a real registry.",
+    "No package is published or downloaded.",
+    "Test your application's registry-policy analysis."
+  ]
+}

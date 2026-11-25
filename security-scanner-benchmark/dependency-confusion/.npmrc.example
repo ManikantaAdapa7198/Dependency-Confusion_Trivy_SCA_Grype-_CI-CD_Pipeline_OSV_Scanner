@@ -1,0 +1,2 @@
+# Example policy only. Do not configure a real registry.
+@example-internal:registry=https://packages.example.invalid/

@@ -1,0 +1,21 @@
+# INTENTIONALLY INSECURE WORKFLOW FIXTURE
+# Manual execution only. No secrets or deployment operations.
+
+name: Benchmark Insecure CI
+
+on:
+  workflow_dispatch:
+
+permissions: write-all
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Demonstrate broad permissions
+        run: echo "CI/CD security test fixture"

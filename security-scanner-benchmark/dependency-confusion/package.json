@@ -1,0 +1,9 @@
+{
+  "name": "dependency-confusion-fixture",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Metadata-only dependency confusion test",
+  "dependencies": {
+    "@example-internal/telemetry": "1.2.0"
+  }
+}
